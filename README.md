@@ -1,4 +1,4 @@
-# gd-project-template
+# godot-project-template
 A project template for new game projects created with Godot.
 
 ## Godot style guide, as per 27th of September, 2023.
