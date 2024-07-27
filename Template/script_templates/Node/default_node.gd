@@ -35,6 +35,10 @@ func _process(delta): ## Why this exists?: commonly used
 	if Engine.is_editor_hint(): 
 		_tool_process()
 	
+func _physics_process(delta):
+	if Engine.is_editor_hint():
+		_tool_physics_process()
+
 
 # Signal callbacks
 ## Signals are primarily connected here.
@@ -87,19 +91,19 @@ func _tool_physics_process(): ## Same as _physics_process(), but runs only in th
 ## Used for prints that may sometimes be useful in debugging. These can be safely disabled.
 ## Can be enabled/disabled via 'enable_print_verbose'.
 func _printver(string: String, string2:="", string3:="", string4:="", string5:="", string6:="", string7:="", string8:="", string9:=""): ## Print verbose. Used for prints that may sometimes be useful in debugging. These can be safely disabled via setting 'enable_print_verbose' to false.
-	var text = string+string2+string3+string4+string5+string6+string7+string8+string9
+	var str_total = string+string2+string3+string4+string5+string6+string7+string8+string9
 	if not enable_print_verbose:
 		return
-	print(text)
+	print(str_total)
 
 ## Print verbose - a wrapper to print(), allows separation of "important" prints from usually extraneous prints.
 ## Used for prints that may sometimes be useful in debugging. These can be safely disabled.
 ## Parameters are separated by given separator. 
 func _printvers(separator: String, string: String, string2:="", string3:="", string4:="", string5:="", string6:="", string7:="", string8:="", string9:=""):
-	var text = string+string2+string3+string4+string5+string6+string7+string8+string9
+	var str_total = string+string2+string3+string4+string5+string6+string7+string8+string9
 	if not enable_print_verbose:
 		return
-	print(text)
+	print(str_total)
 
 ## Prints and pushes a warning.
 func _printwar(string: String, string2:="", string3:="", string4:="", string5:="", string6:="", string7:="", string8:="", string9:=""):
