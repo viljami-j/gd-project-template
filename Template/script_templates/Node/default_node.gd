@@ -29,15 +29,21 @@ extends _BASE_
 func _ready(): ## Why this exists?: commonly used
 	if Engine.is_editor_hint(): 
 		_tool_ready()
+	_onready_connect_signals()
+	# code goes below
+
+	
 	
 
 func _process(delta): ## Why this exists?: commonly used
 	if Engine.is_editor_hint(): 
 		_tool_process()
+	# code goes below
 	
 func _physics_process(delta):
 	if Engine.is_editor_hint():
 		_tool_physics_process()
+	# code goes below
 
 
 # Signal callbacks
