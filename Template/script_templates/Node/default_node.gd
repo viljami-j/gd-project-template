@@ -137,3 +137,5 @@ func _printerrs(separator: String, string: String, string2:="", string3:="", str
 	printerr(error)
 	push_error(error)
 #endregion
+
+# Editor-connected signals
