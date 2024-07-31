@@ -1,12 +1,6 @@
 # meta-default: true
 # meta-name: Default
-
-# On @tool scripts: 
-# - Flagging a script as a @tool simply makes it run in the editor, in addition to being run on the game.
-# - Be extremely careful when flagging a script as a tool, it may have catastrophic irreversible consequences.
-# - Take extra care when calling queue_free() on a @tool script!
-# - Use 'if Engine.is_editor_hint():' to check whether the script is being run in the editor.
-#@tool # uncomment to make this script run in the editor, in addition to the game. Must be at the top.
+#@tool # uncomment to make this script run in the editor.
 
 extends _BASE_
 
@@ -22,38 +16,32 @@ extends _BASE_
 @export_category("Editor-only")
 @export var enable_print_verbose = true ## Toggles whether prints called via _print_verbose() are printed or not.
 @export_category("")
-# Exported properties go here (=inspector properties):
-#@export var my_variable: String
 
 
-func _ready(): ## Why this exists?: commonly used
+func _ready():
 	if Engine.is_editor_hint(): 
 		_tool_ready()
 	_onready_connect_signals()
-	# code goes below
-
-	
 	
 
-func _process(delta): ## Why this exists?: commonly used
+func _process(delta):
 	if Engine.is_editor_hint(): 
 		_tool_process()
-	# code goes below
+
 	
 func _physics_process(delta):
 	if Engine.is_editor_hint():
 		_tool_physics_process()
-	# code goes below
 
 
 # Signal callbacks
 ## Signals are primarily connected here.
-func _onready_connect_signals(): #Why this exists?: part of writing code declaratively - this makes it very easy to glance at signals, the editor signals can be prone to breaking through user-error or scene corruption.
+func _onready_connect_signals():
 	#some_node.connect("some_signal", func(): print("My signal callback"))
 	pass
 
 
-# Tool-only (=editor-only) functions
+# Tool/editor-only functions
 #region All editor functionality goes here, strictly! Prefix functions like so: func _tool_my_function()
 func _tool_ready(): ## Same as _ready(), but runs only in the editor.
 	if not Engine.is_editor_hint(): return
