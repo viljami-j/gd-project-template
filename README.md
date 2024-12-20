@@ -1,5 +1,7 @@
-# godot-project-template
-A project template for new game projects created with Godot.
+# To begin a new project ..
+1. Get Python 3.12 or newer
+2. Run 'bootstrap_project.py' to generate the project files including the framework
+3. All done - happy developing!
 
 ## Godot style guide, as per 27th of September, 2023.
 _For consistency across projects, we recommend following these guidelines:_
